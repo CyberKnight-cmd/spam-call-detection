@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Scam Detection</string>
+    <string name="phone_book_app">Phone Book App</string>
+    <string name="create_your_profile">Create Your Profile</string>
+    <string name="create_profile_subtitle">Enter your details to synchronize your contacts across devices.</string>
+    <string name="username_label">Username</string>
+    <string name="username_hint">e.g. johndoe</string>
+    <string name="username_helper">This is how your contacts will see you.</string>
+    <string name="phone_number_label">Phone Number</string>
+    <string name="phone_number_hint">e.g. 1234567890</string>
+    <string name="phone_number_helper">A unique identifier for secure access.</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="phone_title">Phone</string>
+    <string name="enter_number_hint">Enter number</string>
+    <string name="unknown_contact">Unknown contact</string>
+    <string name="call_tab">Call</string>
+    <string name="registry_tab">Registry</string>
+    <string name="registry_title">Registry</string>
+    <string name="all_contacts_header">ALL CONTACTS</string>
+    <string name="add_contact_desc">Add Contact</string>
+    <string name="search_desc">Search</string>
+    <string name="back_desc">Back</string>
+    <string name="add_contact_title">Add Contact</string>
+    <string name="save_button">SAVE</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="full_name_label">Full Name</string>
+    <string name="full_name_placeholder">John Doe</string>
+    <string name="phone_number_placeholder">12345 67890</string>
+    <string name="create_contact_button">Create Contact</string>
+    <string name="close_desc">Close</string>
+</resources>
