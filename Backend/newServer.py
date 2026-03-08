@@ -359,7 +359,7 @@ def run_stage(audio: np.ndarray, state: SessionState) -> tuple:
         intent: float(np.max(cosine_similarity(text_emb, embs)))
         for intent, embs in intent_embeddings.items()
     }
-    best_intent = max(scores, key=scores.get)
+    best_intent = max(scores.keys(), key=lambda k: scores[k])
     best_score  = scores[best_intent]
 
     if best_score >= SIMILARITY_GATE:
@@ -415,9 +415,9 @@ def process_window(window: np.ndarray, state: SessionState) -> str:
 
     # ── Map to label ──────────────────────────────────────────
     if running_risk < 0.15:   return "✅ SAFE"
-    elif running_risk < 0.35: return "🟡 LOW RISK"
-    elif running_risk < 0.55: return "🟠 MODERATE"
-    elif running_risk < 0.80: return "🔴 HIGH RISK"
+    elif running_risk < 0.25: return "🟡 LOW RISK"
+    elif running_risk < 0.45: return "🟠 MODERATE"
+    elif running_risk < 0.60: return "🔴 HIGH RISK"
     else:                     return "🚨 SCAM ALERT"
 
 

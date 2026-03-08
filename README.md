@@ -2,6 +2,10 @@
 
 Real-time AI-powered scam call detection system using multi-modal analysis of audio features, speech patterns, and conversation context. The system combines an Android mobile application with a Python backend to provide live scam detection during phone calls.
 
+## Youtube Pitch
+[![Watch the video](https://img.youtube.com/vi/TFx9VcgPPic/0.jpg)](https://youtu.be/TFx9VcgPPic)
+
+
 ## Overview
 
 This project uses a 4-model ensemble approach to detect scam calls in real-time:
@@ -25,7 +29,7 @@ This project uses a 4-model ensemble approach to detect scam calls in real-time:
         │                                      │  - Phoneme CNN │
         │                                      │  - Urgency MLP │
         │                                      │  - Repetition  │
-        │                                      │  - Stage Track │
+        │                                      │  - Stage Track(Transcribing Audio) │
         │                                      └────────────────┘
         │                                               │
         │                                               ▼
