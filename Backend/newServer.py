@@ -81,16 +81,7 @@ INTENTS = {
 "am I speaking with Arya",
 "can you hear me clearly",
 "this is a service call regarding your account",
-"this call is for account verification",
-"namaste sir",
-"namaste maam",
-"hello this is customer service",
-"hello I hope you are doing well",
-"hello I am calling regarding your bank account",
-"hello this call is about your bank services",
-"hello we are calling from bank support",
-"hello this is an official call",
-"hello this is customer care calling",
+"this call is for account verification"
 
 ],
 
@@ -114,14 +105,7 @@ INTENTS = {
 "This call is from official bank department",
 "This is your bank security desk",
 "This is financial services department",
-"This is your registered bank support",
-"main bank se bol raha hoon",
-"main SBI bank se bol raha hoon",
-"main bank verification department se bol raha hoon",
-"main customer support se bol raha hoon",
-"main bank security team se bol raha hoon",
-"ye bank verification call hai",
-"main card department se bol raha hoon"
+"This is your registered bank support"
 ],
 
 "problem": [
@@ -144,14 +128,7 @@ INTENTS = {
 "someone tried accessing your banking account",
 "your account has abnormal activity",
 "your account is under investigation",
-"your card access is limited",
-"aapka account block ho sakta hai",
-"aapka ATM card block ho gaya hai",
-"aapka KYC pending hai",
-"aapke account mein suspicious activity hai",
-"aapka bank account verify nahi hua",
-"aapka account temporarily block ho gaya hai",
-"aapka account security issue mein hai"
+"your card access is limited"
 ],
 
 "urgency": [
@@ -174,13 +151,7 @@ INTENTS = {
 "this process must be completed immediately",
 "this cannot be delayed",
 "we must finish verification now",
-"your service may stop today",
-"abhi verify karna hoga",
-"turant verify karna padega",
-"abhi confirm karna hoga",
-"warna account block ho jayega",
-"jaldi karna hoga",
-"abhi process complete karna hoga"
+"your service may stop today"
 ],
 
 "data_request": [
@@ -203,17 +174,7 @@ INTENTS = {
 "share the code sent to your phone",
 "confirm the OTP message",
 "tell me the verification number",
-"read the code you just received",
-"OTP bata dijiye",
-"OTP bol dijiye",
-"jo OTP aya hai wo bataiye",
-"SMS mein jo code aya hai wo boliye",
-"verification code bata dijiye",
-"mobile pe jo code aya hai wo boliye",
-"jo number aya hai wo bataiye",
-"OTP share kar dijiye",
-"message mein jo code hai wo boliye",
-"OTP confirm kar dijiye"
+"read the code you just received"
 ]
 
 }
