@@ -6,6 +6,40 @@ Real-time AI-powered scam call detection system using multi-modal analysis of au
 [![Watch the video](https://img.youtube.com/vi/TFx9VcgPPic/0.jpg)](https://youtu.be/TFx9VcgPPic)
 
 
+## Research Paper
+
+**"Real-Time Multimodal Detection of Fraud and Scam Calls Using Conversation Stage Modeling and Ensemble Learning"**
+Pritam Paul, Arya Gupta, Srijan Sarkar, Shinjan Saha, Subhalaxmi Chakraborty — Institute of Engineering & Management / University of Engineering and Management, Kolkata.
+
+This repository is the public implementation of the paper. Key points:
+
+- Every call is split into **non-overlapping 4-second windows** (16 kHz, 16-bit PCM), streamed live over a WebSocket.
+- **Four models run in parallel** on each window (phoneme CNN, prosody/urgency, script-repetition CNN, conversation-stage detection).
+- Outputs are combined with **weighted risk fusion** and smoothed with an **Exponential Moving Average (EMA)** so one noisy window can't trigger a false alarm.
+- Conversation-stage modelling (Greeting → Authority → Problem → Urgency → Data Request) carries the largest weight and gives the largest gain.
+
+### Results (per-call, 16 calls: 7 legitimate, 9 scam, threshold 0.40)
+
+| Metric | Value |
+|---|---|
+| Accuracy | **81.25%** |
+| Weighted F1 | 0.8132 |
+| Macro F1 | 0.8118 |
+| ROC-AUC | **0.8730** |
+| Average Precision (PR) | 0.8412 |
+| Scam-class precision | 0.8750 |
+
+Confusion matrix: 6/7 legitimate and 7/9 scam calls classified correctly (13/16).
+
+### Ablation study
+
+| Configuration | Accuracy |
+|---|---|
+| Conversation Stage only | 75.00% |
+| + Phoneme CNN | 77.50% |
+| + Prosody/Urgency | 79.38% |
+| Full framework (+ Script Repetition) | **81.25%** |
+
 ## Overview
 
 This project uses a 4-model ensemble approach to detect scam calls in real-time:
@@ -209,7 +243,7 @@ W_URGENCY = 0.10        # Urgency detection weight
 # Risk calculation
 ALPHA = 0.7             # Running risk smoothing
 BETA = 0.3              # New risk weight
-THRESHOLD = 0.45        # Scam threshold
+THRESHOLD = 0.45        # Live-server scam threshold (paper evaluation used 0.40, chosen via Youden J)
 ```
 
 ### Training Configuration (`training_config.json`)
@@ -241,15 +275,20 @@ The backend filters out silence and non-speech segments using WebRTC VAD.
 
 ### 4. Model Inference
 All 4 models run in parallel:
-- Phoneme CNN analyzes speech patterns
-- Urgency detector measures vocal stress
-- Repetition CNN identifies keyword patterns
+- Phoneme CNN analyzes MFCCs of the dominant speaker (padded/trimmed to 370 frames)
+- Urgency detector scores 0–3 by comparing pitch mean, pitch variation, RMS energy, spectral centroid and speech rate against thresholds
+- Repetition CNN splits each window into four 1-second segments (470 frames each) and takes the max scam probability
 - Sentence transformer tracks conversation stages
 
 ### 5. Risk Fusion
 Weighted combination of all model outputs:
 ```
 risk = 0.60 × stage_risk + 0.20 × repetition + 0.10 × phoneme + 0.10 × urgency
+```
+
+Then the running risk is smoothed across windows with EMA:
+```
+running_risk_t = 0.7 × running_risk_(t-1) + 0.3 × raw_risk_t
 ```
 
 ### 6. Alert Generation
@@ -259,11 +298,14 @@ Risk score is mapped to one of 5 alert levels and sent back to the Android app.
 
 The system tracks 5 conversation stages common in scam calls:
 
+0. **NONE** - No stage detected yet (Risk: 0.05)
 1. **GREETING** - Initial contact (Risk: 0.10)
 2. **AUTHORITY** - Claims to be from bank/official (Risk: 0.25)
-3. **PROBLEM** - Creates urgency/fear (Risk: 0.50)
+3. **PROBLEM** - Describes a fictitious problem (Risk: 0.50)
 4. **URGENCY** - Demands immediate action (Risk: 0.70)
-5. **DATA_REQUEST** - Asks for OTP/password (Risk: 0.95)
+5. **DATA_REQUEST** - Asks for OTP/password/bank details (Risk: 0.95)
+
+How it works: Whisper.cpp transcribes each window, `all-MiniLM-L6-v2` embeds the transcript, and it is compared with English **and Hindi** example phrases for each intent. A match needs cosine similarity ≥ **0.55**. Stages only move **forward** (scam scripts follow a fixed order).
 
 ## Model Training
 
@@ -302,7 +344,7 @@ dataset/
 ## Performance
 
 - **Latency** - ~500ms per 4-second window
-- **Accuracy** - Multi-model ensemble approach
+- **Accuracy** - 81.25% per-call accuracy, ROC-AUC 0.873 (see Research Paper section)
 - **Real-time** - Processes audio as it streams
 - **Scalability** - Thread pool for concurrent connections
 
@@ -317,7 +359,10 @@ dataset/
 
 - Requires stable internet connection for backend processing
 - Works best with clear audio (minimal background noise)
-- English language optimized (Hindi support in progress)
+- Evaluated on a small set (16 calls); larger, more diverse datasets are needed
+- Whisper can make transcription errors on noisy telephone audio, which affects stage detection
+- Urgency thresholds are hand-set and may not generalise across all speakers
+- Intent examples cover English and Hindi; other regional languages are future work
 - Requires 16kHz audio sample rate
 
 ## Future Enhancements
