@@ -113,12 +113,12 @@ SEC = "Introduction"; pres.addSection({ title: SEC });
   s.addImage({ path: A("banner.png"), x: 0.35, y: 1.5, w: 9.3, h: 1.4, altText: "Title banner" });
   s.addText("Real-Time Multimodal Detection of Fraud and Scam Calls Using Conversation Stage Modeling and Ensemble Learning", { isTextBox: true, x: 0.6, y: 1.55, w: 8.8, h: 1.22, fontSize: 22, bold: true, color: C.background1, align: "center", valign: "middle", margin: 0, shadow: titleShadow() });
   const AUTHORS = [
-    [["Subhalaxmi Chakraborty", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["subhalaxmi2008@gmail.com", ""]],
+    [["Subhalaxmi Chakraborty", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering & Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["subhalaxmi2008@gmail.com", ""]],
     [["Krishna Kumar Jha", "n"], ["Guru Nanak Institute of Technology", "i"], ["Kolkata, India", ""], ["krishnakumar.jha@gnit.ac.in", ""], ["ORCID: 0000-0002-3210-5187", ""]],
-    [["Pritam Paul", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["paulpritam417@gmail.com", ""]],
-    [["Arya Gupta", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["aryagupta.dev@gmail.com", ""]],
-    [["Srijan Sarkar", "n"], ["Department of CST & CSIT", "i"], ["IEM & UEM", ""], ["Kolkata, India", ""], ["srijansarkar.coding@gmail.com", ""]],
-    [["Shinjan Saha", "n"], ["Department of CST & CSIT", "i"], ["IEM & UEM", "i"], ["Kolkata, India", ""], ["shinjansaha00@gmail.com", ""]],
+    [["Pritam Paul", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering & Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["paulpritam417@gmail.com", ""]],
+    [["Arya Gupta", "n"], ["Department of CSE", "i"], ["Institute of Engineering & Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["aryagupta.dev@gmail.com", ""]],
+    [["Srijan Sarkar", "n"], ["Department of CSE", "i"], ["Institute of Engineering & Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["srijansarkar.coding@gmail.com", ""]],
+    [["Shinjan Saha", "n"], ["Department of CSE", "i"], ["Institute of Engineering & Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["shinjansaha00@gmail.com", ""]],
   ];
   AUTHORS.forEach((lines, k) => {
     const x = 0.2 + (k % 3) * 3.2, y = 3.15 + Math.floor(k / 3) * 1.75;

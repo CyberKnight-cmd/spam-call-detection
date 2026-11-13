@@ -9,7 +9,7 @@ Real-time AI-powered scam call detection system using multi-modal analysis of au
 ## Research Paper
 
 **"Real-Time Multimodal Detection of Fraud and Scam Calls Using Conversation Stage Modeling and Ensemble Learning"**
-Pritam Paul, Arya Gupta, Srijan Sarkar, Shinjan Saha, Subhalaxmi Chakraborty — Institute of Engineering & Management / University of Engineering and Management, Kolkata.
+Pritam Paul, Arya Gupta, Srijan Sarkar, Shinjan Saha, Subhalaxmi Chakraborty — Institute of Engineering & Management / University of Engineering & Management, Kolkata.
 
 This repository is the public implementation of the paper. Key points:
 
