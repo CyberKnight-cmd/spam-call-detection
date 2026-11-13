@@ -17,7 +17,7 @@ const pres = new pptxgen();
 pres.layout = "LAYOUT_4x3";
 pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
 pres.title = "Real-Time Multimodal Detection of Fraud and Scam Calls (8 slides)";
-pres.author = "Pritam Paul, Arya Gupta, Srijan Sarkar, Shinjan Saha, Subhalaxmi Chakraborty";
+pres.author = "Subhalaxmi Chakraborty, Krishna Kumar Jha, Pritam Paul, Arya Gupta, Srijan Sarkar, Shinjan Saha";
 const C = pres.SchemeColor;
 const BLUE = C.accent1, NAVY = C.text2, RED = C.accent2, GREY = C.accent4, TINT = C.background2, EDGE = C.accent5;
 const titleShadow = () => ({ type: "outer", angle: 45, blur: 3, offset: 2, color: "000000", opacity: 0.45 });
@@ -74,15 +74,26 @@ pres.addSection({ title: "Talk" });
 {
   const s = pres.addSlide({ sectionTitle: "Talk" });
   s.background = { color: "FFFFFF" };
-  s.addImage({ path: A("tile.png"), x: 0, y: 0, w: 1.47, h: 1.85, altText: "Phone icon" });
-  s.addImage({ path: A("banner.png"), x: 0.35, y: 2.5, w: 9.3, h: 1.43, altText: "Title banner" });
-  T(s, "REAL-TIME SCAM CALL DETECTION", { x: 0.45, y: 2.55, w: 9.0, h: 1.25, fontSize: 34, bold: true, color: C.background1, align: "center", valign: "middle", charSpacing: 2, shadow: titleShadow() });
-  T(s, "Multimodal Detection Using Conversation Stage Modeling and Ensemble Learning", { x: 0.8, y: 4.15, w: 8.4, h: 0.95, fontSize: 24, color: NAVY, align: "center", valign: "middle" });
-  T(s, "Pritam Paul · Arya Gupta · Srijan Sarkar · Shinjan Saha · Subhalaxmi Chakraborty", { x: 0.5, y: 5.25, w: 9.0, h: 0.4, fontSize: 16, color: NAVY, align: "center" });
-  T(s, "Institute of Engineering & Management · University of Engineering and Management, Kolkata", { x: 0.5, y: 6.3, w: 9.0, h: 0.3, fontSize: 12, bold: true, color: NAVY, align: "center" });
-  T(s, [{ text: "github.com/CyberKnight-cmd/spam-call-detection", options: { hyperlink: { url: "https://github.com/CyberKnight-cmd/spam-call-detection" } } }], { x: 2.0, y: 6.65, w: 6.0, h: 0.3, fontSize: 11, color: C.hyperlink, align: "center" });
-  s.addShape(pres.shapes.RECTANGLE, { x: 8.55, y: 6.95, w: 1.25, h: 0.38, fill: { color: "2E75B6" }, line: { color: "2E75B6", width: 0 }, shadow: { type: "outer", angle: 45, blur: 3, offset: 2, color: "000000", opacity: 0.4 } });
-  T(s, "IEM · UEM", { x: 8.55, y: 6.95, w: 1.25, h: 0.38, fontSize: 12, bold: true, color: C.background1, align: "center", valign: "middle" });
+  s.addImage({ path: A("logo_uem.png"), x: 0.25, y: 0.2, w: 2.05, h: 1.15, altText: "University of Engineering & Management logo" });
+  s.addImage({ path: A("logo_iem.png"), x: 8.1, y: 0.2, w: 1.65, h: 1.15, altText: "Institute of Engineering & Management logo" });
+  s.addShape(pres.shapes.RECTANGLE, { x: 3.9, y: 0.52, w: 2.2, h: 0.5, fill: { color: "2E75B6" }, line: { color: "2E75B6", width: 0 }, shadow: { type: "outer", angle: 45, blur: 3, offset: 2, color: "000000", opacity: 0.4 } });
+  s.addText("Paper ID: 810", { isTextBox: true, x: 3.9, y: 0.52, w: 2.2, h: 0.5, fontSize: 18, bold: true, color: C.background1, align: "center", valign: "middle", margin: 0 });
+  s.addImage({ path: A("banner.png"), x: 0.35, y: 1.5, w: 9.3, h: 1.4, altText: "Title banner" });
+  s.addText("Real-Time Multimodal Detection of Fraud and Scam Calls Using Conversation Stage Modeling and Ensemble Learning", { isTextBox: true, x: 0.6, y: 1.55, w: 8.8, h: 1.22, fontSize: 22, bold: true, color: C.background1, align: "center", valign: "middle", margin: 0, shadow: titleShadow() });
+  const AUTHORS = [
+    [["Subhalaxmi Chakraborty", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["subhalaxmi2008@gmail.com", ""]],
+    [["Krishna Kumar Jha", "n"], ["Guru Nanak Institute of Technology", "i"], ["Kolkata, India", ""], ["krishnakumar.jha@gnit.ac.in", ""], ["ORCID: 0000-0002-3210-5187", ""]],
+    [["Pritam Paul", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering Management", "i"], ["Kolkata, India", ""], ["paulpritam417@gmail.com", ""]],
+    [["Arya Gupta", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering Management", "i"], ["Kolkata, India", ""], ["aryagupta.dev@gmail.com", ""]],
+    [["Srijan Sarkar", "n"], ["Department of CST & CSIT", "i"], ["IEM & UEM", ""], ["Kolkata, India", ""], ["srijansarkar.coding@gmail.com", ""]],
+    [["Shinjan Saha", "n"], ["Department of CST & CSIT", "i"], ["IEM & UEM", "i"], ["Kolkata, India", ""], ["shinjansaha00@gmail.com", ""]],
+  ];
+  AUTHORS.forEach((lines, k) => {
+    const x = 0.2 + (k % 3) * 3.2, y = 3.15 + Math.floor(k / 3) * 1.75;
+    s.addText(lines.map(([t, st], j) => ({ text: t, options: { breakLine: j < lines.length - 1, bold: st === "n", italic: st === "i", fontSize: st === "n" ? 14 : 11, color: st === "n" ? C.text2 : C.text1 } })),
+      { isTextBox: true, x, y, w: 3.2, h: 1.6, align: "center", valign: "top", margin: 0 });
+  });
+  s.addText([{ text: "github.com/CyberKnight-cmd/spam-call-detection", options: { hyperlink: { url: "https://github.com/CyberKnight-cmd/spam-call-detection" } } }], { isTextBox: true, x: 2.0, y: 6.75, w: 6.0, h: 0.3, fontSize: 11, color: C.hyperlink, align: "center", margin: 0 });
   s.addNotes("Good morning. Our paper detects scam phone calls while the call is still happening. In the next seven slides: the problem and our key idea, the framework, our four models with their maths, how we combine them, the results, and our conclusions.");
 }
 
