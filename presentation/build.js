@@ -115,8 +115,8 @@ SEC = "Introduction"; pres.addSection({ title: SEC });
   const AUTHORS = [
     [["Subhalaxmi Chakraborty", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["subhalaxmi2008@gmail.com", ""]],
     [["Krishna Kumar Jha", "n"], ["Guru Nanak Institute of Technology", "i"], ["Kolkata, India", ""], ["krishnakumar.jha@gnit.ac.in", ""], ["ORCID: 0000-0002-3210-5187", ""]],
-    [["Pritam Paul", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering Management", "i"], ["Kolkata, India", ""], ["paulpritam417@gmail.com", ""]],
-    [["Arya Gupta", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering Management", "i"], ["Kolkata, India", ""], ["aryagupta.dev@gmail.com", ""]],
+    [["Pritam Paul", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["paulpritam417@gmail.com", ""]],
+    [["Arya Gupta", "n"], ["Department of CST & CSIT", "i"], ["Institute of Engineering and Management", "i"], ["University of Engineering & Management", "i"], ["Kolkata, India", ""], ["aryagupta.dev@gmail.com", ""]],
     [["Srijan Sarkar", "n"], ["Department of CST & CSIT", "i"], ["IEM & UEM", ""], ["Kolkata, India", ""], ["srijansarkar.coding@gmail.com", ""]],
     [["Shinjan Saha", "n"], ["Department of CST & CSIT", "i"], ["IEM & UEM", "i"], ["Kolkata, India", ""], ["shinjansaha00@gmail.com", ""]],
   ];
