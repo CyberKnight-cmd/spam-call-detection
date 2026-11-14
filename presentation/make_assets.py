@@ -83,6 +83,12 @@ EQUATIONS = {
     "tprfpr": (r"$\mathrm{TPR}=\dfrac{TP}{TP+FN},\qquad\mathrm{FPR}=\dfrac{FP}{FP+TN}$", 20),
     "auc": (r"$\mathrm{AUC}=P\left(s_{\mathrm{scam}}>s_{\mathrm{normal}}\right)=\dfrac{1}{n_{+}n_{-}}\sum_{i\in+}\sum_{j\in-}\mathbf{1}[s_i>s_j]$", 18),
     "youden": (r"$J=\mathrm{TPR}-\mathrm{FPR}$", 20),
+    # large versions for the AISCPS deck (rendered at >= 26 pt so they stay >= 24 pt on the slide)
+    "convL": (r"$h_t=\mathrm{ReLU}\left(b+\sum_{k=0}^{K-1}W_k\,x_{t+k}\right)$", 28),
+    "repL": (r"$p_{\mathrm{rep}}=\max_{j=1,\dots,4}\ \mathrm{CNN}(s_j)$", 28),
+    "urgL": (r"$u=\min\left(3,\ \sum_{i=1}^{5}\mathbf{1}\left[f_i>\lambda_i\,b_i\right]\right)$", 28),
+    "fuseL": (r"$r_t=0.6\,r_{\mathrm{stage}}+0.2\,p_{\mathrm{rep}}+0.1\,p_{\mathrm{phon}}+0.1\,r_{\mathrm{urg}}$", 28),
+    "emaL": (r"$R_t=0.7\,R_{t-1}+0.3\,r_t$", 28),
 }
 
 sizes = {}
